@@ -12,8 +12,8 @@
     <div style="text-align: center;">
         <span id="titleSpan" style="font-weight:bolder;display:block;font-family: '宋体';font-size: 29px;">110kV变压器保护校验标准化作业指导卡</span>
     </div>
-    </br>
-    </br>
+    <br>
+    <br>
 
     <div style="text-align: center;">
         <table style="margin: 0 auto;text-align: center; border-collapse: collapse;width:50%;table-layout:fixed;">
@@ -43,15 +43,15 @@
 
         </table>
     </div>
-    </br>
-    </br>
+    <br>
+    <br>
     <div style="text-align: center;">
         <table style="margin: 0 auto; border-collapse: collapse;width:50%;table-layout:fixed;">
             <tr>
                 <th colspan="4" style="text-align:left;border:1px solid white;">一、校验准备阶段</th>
             </tr>
         </table>
-        </br>
+        <br>
         <table style="margin: 0 auto; border-collapse: collapse;width:50%;table-layout:fixed;">
             <tr style="background-color: #698CBA;">
                 <th contentEditable="true" style="background-color: #698CBA;border:1px solid black;width:5%">序号</th>
@@ -122,20 +122,20 @@
             </tr>
 
         </table>
-        </br>
+        <br>
 
         <!--第二个表-->
         </table>
     </div>
-    </br>
-    </br>
+    <br>
+    <br>
     <div style="text-align: center;">
         <table style="margin: 0 auto; border-collapse: collapse;width:50%;table-layout:fixed;">
             <tr>
                 <th colspan="4" style="text-align:left;border:1px solid white;">二、检修实施阶段</th>
             </tr>
         </table>
-        </br>
+        <br>
 
         <table style="margin: 0 auto; border-collapse: collapse;width:50%;table-layout:fixed;">
             <!--这里是表格标题-->
@@ -589,15 +589,15 @@
         <!--第三个表-->
         </table>
     </div>
-    </br>
-    </br>
+    <br>
+    <br>
     <div style="text-align: center;">
         <table style="margin: 0 auto; border-collapse: collapse;width:50%;table-layout:fixed;">
             <tr>
                 <th colspan="4" style="text-align:left;border:1px solid white;">三、校验结束阶段</th>
             </tr>
         </table>
-        </br>
+        <br>
         <table style="margin: 0 auto; border-collapse: collapse;width:50%;table-layout:fixed;">
             <tr style="background-color: #698CBA;">
                 <th contentEditable="true" style="background-color: #698CBA;border:1px solid black;width:5%">序号</th>
@@ -684,7 +684,7 @@
             </tr>
 
         </table>
-        </br>
+        <br>
         <div style="text-align: center;">
             <table style="margin: 0 auto;text-align: right; border-collapse: collapse;width:50%;table-layout:fixed;">
                 <tr>
@@ -698,41 +698,26 @@
             </table>
         </div>
 
-        <code class="language-html"><a href="javascript:void(0)" class="btn btn-primary"
-                                       onclick="exportWord()">导出</a></code>
-        <button onclick="test()">test</button>
+        <code class="language-html">
+            <a href="javascript:void(0)" class="btn btn-primary" onclick="test()">导出</a>
+        </code>
     </div>
 </div>
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="js/fileSaver.js"></script>
-<script type="text/javascript" src="js/jquery.wordexport.js"></script>
-<script type="text/javascript" src="js/tableExport.js"></script>
+<script type="text/javascript" src="tableExport.js"></script>
 <script type="text/javascript">
-    function exportWord() {
-        $("#export_word").hide();
-        $("html").wordExport();
-        $("#export_word").show();
-    }
-
-    $('.okDiv1').click(function () {
-        var a = $(this).html();
-        <!--window.alert(a);-->
-        if (a == '' || a == null) {
-            $(this).html('&radic;');
-        } else {
-            $(this).html('');
-        }
-    })
 
     function test() {
         var myTable = document.createElement("table");
-        var tableHtml = ''
-        var allTable = document.querySelectorAll('table')
+        var tableHtml = '';
+        var allTable = document.querySelectorAll('table');
         for (var i = 0; i < allTable.length; i++) {
             tableHtml += allTable[i].querySelector('tbody').innerHTML;
         }
-        myTable.innerHTML = tableHtml
-        tableExport(myTable, 'test', 'doc');
+        myTable.innerHTML = tableHtml;
+        myTable.setAttribute('id','testTable');
+        document.querySelector("body").appendChild(myTable);
+        tableExport('testTable', 'test', 'docx');
+        document.querySelector("body").removeChild(myTable);
     }
 </script>
 </body>
