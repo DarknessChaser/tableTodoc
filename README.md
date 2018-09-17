@@ -11,7 +11,7 @@
     // 参数分别为 要导出table的id，文件名，文档类型（有且仅有doc一个选项）
 ```
 
-如果需要导出多个table可以参考例子中，把多个table合成变成一个table，插入到body后再删除，因为库里面使用getdocumentbyid方法获取table元素不插入找不到。
+如果需要导出多个table可以参考例子中，把多个table合成变成一个table，插入到body后再删除，因为库里面使用`getElementById()`方法获取table元素不插入找不到。
 ```
     var myTable = document.createElement("table");
     var tableHtml = ''
